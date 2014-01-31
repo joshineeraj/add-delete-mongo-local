@@ -23,8 +23,12 @@ config(['$routeProvider', function($routeProvider) {
 .config(function(RestangularProvider) {
   RestangularProvider.setBaseUrl('http://localhost:3000/');
  // RestangularProvider.setDefaultRequestParams({ apiKey: '83nxC8BfkaXHn-B1iM3Dc-t-MpG_Zi85' });
-  RestangularProvider.setRestangularFields({ id: '_id.$oid' });
-  
+  //RestangularProvider.setRestangularFields({ id: '_id.$oid' });
+  RestangularProvider.setRestangularFields({ id: "_id" });
+  RestangularProvider.setDefaultHttpFields({
+	  withCredentials: true,
+	  useXDomain : true
+  });
   RestangularProvider.setRequestInterceptor(function(elem, operation, what) {
       
 	  if (operation === 'put') {

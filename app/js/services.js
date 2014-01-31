@@ -13,8 +13,8 @@ angular.module('myApp.services', []).
     	return movieData;
     }
     
-    var _addNewMovie = function(movie){
-    	movie = Restangular.all('wines').post(movie);
+    var _addNewMovie = function(newMovie){
+    	var movie = Restangular.all('wines').post(newMovie);
     	return movie;
     	
     }
